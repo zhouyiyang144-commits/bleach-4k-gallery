@@ -1,0 +1,1707 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLEACH Brave Souls 全角色4K高清图鉴 - 1000+角色 ¥20</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231a1a2e'/><text x='32' y='46' font-size='42' text-anchor='middle' fill='%23feca57'>⚔️</text></svg>">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: #0a0a1a;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        #particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* ====== 限时倒计时（合并版横幅） ====== */
+        .top-banner {
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff9f43 50%, #feca57 100%);
+            text-align: center;
+            padding: 12px 20px 8px;
+            border-bottom: 3px solid rgba(255,255,255,0.2);
+        }
+        .top-banner .countdown-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+            color: rgba(0,0,0,0.8);
+            margin-bottom: 6px;
+        }
+        .top-banner .countdown-timer {
+            display: inline-flex;
+            gap: 3px;
+            align-items: center;
+        }
+        .top-banner .seg {
+            background: rgba(0,0,0,0.35);
+            padding: 3px 9px;
+            border-radius: 6px;
+            font-size: 1.15em;
+            font-family: 'Courier New', monospace;
+            min-width: 36px;
+            text-align: center;
+            color: #fff;
+        }
+        .top-banner .sep {
+            font-size: 1.2em;
+            color: #fff;
+            font-weight: bold;
+        }
+        .cta-banner {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 24px 30px;
+            margin: 20px auto;
+            max-width: 720px;
+            text-align: center;
+        }
+        .cta-banner .highlight {
+            font-size: 1.35em;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .cta-tagline {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9em;
+            margin-bottom: 16px;
+        }
+        .cta-price-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .cta-original {
+            color: rgba(255,255,255,0.45);
+            text-decoration: line-through;
+            font-size: 1em;
+        }
+        .cta-price {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #feca57;
+            text-shadow: 0 2px 8px rgba(254,202,87,0.4);
+        }
+        .cta-buy-btn {
+            padding: 12px 32px;
+            font-size: 1.05em;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 18px rgba(102,126,234,0.5);
+            animation: pulse 2s infinite;
+            transition: transform 0.2s;
+        }
+        .cta-buy-btn:hover { transform: scale(1.05); }
+        .cta-urgency {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85em;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 25px 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 30px 0 20px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease infinite;
+            text-shadow: none;
+            letter-spacing: 3px;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .hero .subtitle {
+            color: #8a8aaa;
+            font-size: 1.1em;
+            margin-top: 8px;
+            letter-spacing: 2px;
+        }
+        .hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .hero .stat {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 10px 25px;
+            text-align: center;
+        }
+        .hero .stat .num {
+            font-size: 1.8em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #feca57, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero .stat .label {
+            font-size: 0.85em;
+            color: #888;
+            margin-top: 2px;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .tab {
+            position: relative;
+            padding: 14px 45px;
+            background: rgba(255,255,255,0.04);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+        .tab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tab span { position: relative; z-index: 1; }
+        .tab:hover::before { opacity: 0.5; }
+        .tab:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+        .tab.active {
+            border-color: #667eea;
+            box-shadow: 0 0 25px rgba(102,126,234,0.4), 0 0 50px rgba(102,126,234,0.2);
+        }
+        .tab.active::before { opacity: 1; }
+        .tab .count {
+            display: block;
+            font-size: 0.78em;
+            color: #aaa;
+            margin-top: 4px;
+        }
+        .tab.active .count { color: #e0d0ff; }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 8px 18px;
+            border-radius: 50px;
+            transition: border-color 0.3s;
+        }
+        .search-box:focus-within { border-color: #667eea; }
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.95em;
+            width: 130px;
+            outline: none;
+        }
+        .search-box input::placeholder { color: #666; }
+        .search-box button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .search-box button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+        }
+        .page-info {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 1200px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 900px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+        
+        .card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.03);
+            border: 2px solid rgba(255,255,255,0.08);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            aspect-ratio: 1;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            border-color: rgba(102,126,234,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(102,126,234,0.2);
+        }
+        .card:hover::before { opacity: 1; }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #ff6b6b, #feca57);
+            background-size: 400% 400%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s;
+            animation: borderGlow 4s ease infinite;
+        }
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .card:hover::after { opacity: 1; }
+        
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            background: #000;
+            transition: transform 0.4s;
+        }
+        .card:hover img { transform: scale(1.08); }
+        
+        .card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 30px 12px 12px;
+            z-index: 2;
+        }
+        .card-num {
+            font-size: 0.85em;
+            color: rgba(255,255,255,0.5);
+            font-weight: bold;
+        }
+        
+        .star-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 3;
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: #1a1a2e;
+            font-size: 0.7em;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(254,202,87,0.4);
+        }
+        
+        .card-zoom {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 3;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3em;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .card:hover .card-zoom { transform: translate(-50%, -50%) scale(1); }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 40px;
+        }
+        .pagination button {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #aaa;
+            padding: 10px 22px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+        .pagination button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: #667eea;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102,126,234,0.3);
+        }
+        .pagination button:disabled { opacity: 0.3; cursor: not-allowed; }
+        .pagination .page-numbers { display: flex; gap: 5px; }
+        .pagination .page-num {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #aaa;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 44px;
+            text-align: center;
+        }
+        .pagination .page-num:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+        .pagination .page-num.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: #667eea;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+        }
+        
+        .bottom-cta {
+            background: linear-gradient(135deg, #1a0a2e 0%, #0d3d3d 100%);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid rgba(102,126,234,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .bottom-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(102,126,234,0.05) 0%, transparent 60%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        .bottom-cta h3 {
+            position: relative;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .bottom-cta p {
+            position: relative;
+            color: #999;
+            margin-bottom: 25px;
+            font-size: 1em;
+        }
+        .bottom-cta .cta-buttons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .bottom-cta .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .bottom-cta .cta-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+        }
+        .bottom-cta .cta-btn.qq {
+            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            color: #fff;
+            box-shadow: 0 6px 25px rgba(255,71,87,0.4);
+        }
+        .bottom-cta .cta-btn.qq:hover { box-shadow: 0 10px 35px rgba(255,71,87,0.5); }
+        .bottom-cta .cta-btn.bilibili {
+            background: linear-gradient(135deg, #fb7299, #ff5c8a);
+            color: #fff;
+            box-shadow: 0 6px 25px rgba(251,114,153,0.4);
+        }
+        .bottom-cta .cta-btn.bilibili:hover { box-shadow: 0 10px 35px rgba(251,114,153,0.5); }
+        .bottom-cta .cta-btn.wechat {
+            background: linear-gradient(135deg, #07c160, #0add63);
+            color: #fff;
+            box-shadow: 0 6px 25px rgba(7,193,96,0.4);
+        }
+        .bottom-cta .cta-btn.wechat:hover { box-shadow: 0 10px 35px rgba(7,193,96,0.5); }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #444;
+            font-size: 0.85em;
+        }
+
+        /* ====== 4K试看入口按钮 ====== */
+        .preview-4k-entry {
+            background: linear-gradient(135deg, #1a0a2e, #0d2d3d);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin: 25px 0;
+            border: 2px solid rgba(102,126,234,0.3);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .preview-4k-entry:hover {
+            border-color: rgba(102,126,234,0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(102,126,234,0.3);
+        }
+        .preview-4k-entry::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(102,126,234,0.08) 0%, transparent 60%);
+            animation: pulse 5s ease-in-out infinite;
+        }
+        .preview-4k-entry h3 { position: relative; font-size:1.7em; margin-bottom:8px; }
+        .preview-4k-entry p { position: relative; color:#999; font-size:0.95em; margin-bottom:15px; }
+        .preview-4k-btn {
+            position:relative;
+            display:inline-block;
+            padding:12px 40px;
+            font-size:1.1em;
+            font-weight:bold;
+            color:#fff;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            border:none;
+            border-radius:25px;
+            cursor:pointer;
+            box-shadow:0 4px 20px rgba(102,126,234,0.5);
+            transition:all 0.3s;
+        }
+        .preview-4k-btn:hover { transform:scale(1.05); box-shadow:0 6px 30px rgba(102,126,234,0.7); }
+
+        /* ====== 4K试看弹窗 ====== */
+        #preview4kModal .modal-content {
+            max-width:900px;
+            width:92%;
+            max-height:85vh;
+            padding:25px;
+            overflow-y:auto;
+        }
+        .preview4k-tabs {
+            display:flex;
+            justify-content:center;
+            gap:15px;
+            margin-bottom:20px;
+        }
+        .preview4k-tab {
+            padding:10px 30px;
+            border-radius:20px;
+            border:2px solid rgba(255,255,255,0.15);
+            background:rgba(255,255,255,0.05);
+            color:#aaa;
+            cursor:pointer;
+            font-size:1em;
+            font-weight:bold;
+            transition:all 0.3s;
+        }
+        .preview4k-tab.active {
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            border-color:#667eea;
+            color:#fff;
+            box-shadow:0 4px 15px rgba(102,126,234,0.4);
+        }
+        .preview4k-carousel {
+            position:relative;
+            width:100%;
+            overflow:hidden;
+            border-radius:15px;
+            background:rgba(0,0,0,0.5);
+        }
+        .preview4k-track {
+            display:flex;
+            transition:transform 0.4s ease;
+        }
+        .preview4k-slide {
+            min-width:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:10px;
+        }
+        .preview4k-slide img {
+            max-width:100%;
+            max-height:60vh;
+            object-fit:contain;
+            border-radius:10px;
+            border:1px solid rgba(255,255,255,0.1);
+        }
+        .preview4k-arrow {
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            width:45px;
+            height:45px;
+            border-radius:50%;
+            border:none;
+            background:rgba(102,126,234,0.8);
+            color:#fff;
+            font-size:1.3em;
+            cursor:pointer;
+            z-index:5;
+            transition:all 0.2s;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .preview4k-arrow:hover { background:rgba(102,126,234,1); transform:translateY(-50%) scale(1.1); }
+        .preview4k-prev { left:10px; }\n        .preview4k-next { right:10px; }
+        .preview4k-dots {
+            display:flex;
+            justify-content:center;
+            gap:8px;
+            margin-top:12px;
+        }
+        .preview4k-dot {
+            width:10px;
+            height:10px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.25);
+            border:none;
+            cursor:pointer;
+            transition:all 0.3s;
+            padding:0;
+        }
+        .preview4k-dot.active { background:#667eea; transform:scale(1.3); }
+        .preview4k-counter {
+            text-align:center;
+            color:#888;
+            font-size:0.9em;
+            margin-top:8px;
+        }
+        .preview4k-footer {
+            margin-top:18px;
+            text-align:center;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.active { display: flex; }
+        
+        .modal-content {
+            position: relative;
+            max-width: 75vw;
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .modal-topbar {
+            position: absolute;
+            top: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff6b6b, #ff9f43);
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            white-space: nowrap;
+            box-shadow: 0 4px 20px rgba(255,107,107,0.5);
+            animation: pulseBar 2s ease-in-out infinite;
+        }
+        @keyframes pulseBar {
+            0%, 100% { box-shadow: 0 4px 20px rgba(255,107,107,0.5); }
+            50% { box-shadow: 0 4px 35px rgba(255,107,107,0.8); }
+        }
+        
+        .modal img {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 16px;
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3em;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-close:hover {
+            background: rgba(255,107,107,0.8);
+            border-color: rgba(255,107,107,0.8);
+            transform: rotate(90deg);
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3em;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-nav:hover {
+            background: rgba(102,126,234,0.8);
+            border-color: #667eea;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .modal-prev { left: -70px; }
+        .modal-next { right: -70px; }
+        
+        .modal-info {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50px;
+            padding: 8px 22px;
+        }
+        .modal-info .char-num {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .modal-info .char-label {
+            color: #888;
+            font-size: 0.85em;
+        }
+        .modal-info .char-star {
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: #1a1a2e;
+            font-size: 0.75em;
+            font-weight: bold;
+            padding: 2px 10px;
+            border-radius: 8px;
+        }
+        
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: #0a0a1a;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s;
+        }
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.1);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text {
+            margin-top: 20px;
+            color: #888;
+            font-size: 1em;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(255,107,107,0.6);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 4px 40px rgba(255,107,107,0.9), 0 0 60px rgba(255,107,107,0.4);
+                transform: scale(1.05);
+            }
+        }
+    
+            /* 浮动联系按钮 */
+            .contact-float {
+                position: fixed;
+                right: 30px;
+                bottom: 100px;
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .contact-btn {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8em;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+                transition: all 0.3s;
+                text-decoration: none;
+                position: relative;
+            }
+            .contact-btn:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 25px rgba(0,0,0,0.6);
+            }
+            .contact-btn.qq {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+            }
+            .contact-btn.wechat {
+                background: linear-gradient(135deg, #07c160, #0add63);
+            }
+            .contact-btn .tooltip {
+                position: absolute;
+                right: 70px;
+                background: rgba(0,0,0,0.9);
+                color: #fff;
+                padding: 8px 15px;
+                border-radius: 8px;
+                font-size: 0.4em;
+                white-space: nowrap;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s;
+            }
+            .contact-btn:hover .tooltip {
+                opacity: 1;
+            }
+                \n            /* 冰蓝渐变动画 */
+            @keyframes iceGlow {
+                0%, 100% {
+                    background-position: 0% 50%;
+                    filter: brightness(1) drop-shadow(0 0 10px rgba(72,219,251,0.5));
+                }
+                50% {
+                    background-position: 100% 50%;
+                    filter: brightness(1.3) drop-shadow(0 0 20px rgba(102,126,234,0.8));
+                }
+            }
+
+        /* ====== 购买弹窗二维码区域优化 ====== */
+        .payment-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .payment-section h3 {
+            color: #667eea;
+            margin-bottom: 5px;
+            font-size: 1.05em;
+        }
+        .payment-section .scan-tip {
+            color: #888;
+            font-size: 0.88em;
+            margin-bottom: 15px;
+        }
+        .payment-section .price-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #feca57, #ff9f43);
+            color: #1a1a2e;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 4px 16px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+        .qr-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .qr-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 18px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            max-width: 260px;
+            border: 2px solid rgba(255,255,255,0.08);
+            transition: border-color 0.3s;
+        }
+        .qr-box:hover { border-color: rgba(102,126,234,0.4); }
+        .qr-box.alipay { border-color: rgba(22,119,255,0.25); }
+        .qr-box.wechat { border-color: rgba(7,193,96,0.25); }
+        .qr-box .qr-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        .qr-box.alipay .qr-label { color: #1677ff; }
+        .qr-box.wechat .qr-label { color: #07c160; }
+        .qr-box .qr-amount {
+            color: #feca57;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .qr-box .qr-img-wrap {
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .qr-box .qr-hint {
+            color: #888;
+            font-size: 0.82em;
+            margin-top: 8px;
+        }
+        /* 联系客服提示区 */
+        .contact-tip-box {
+            background: rgba(102,126,234,0.08);
+            border: 1px solid rgba(102,126,234,0.25);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-top: 15px;
+        }
+        .contact-tip-box .contact-tip-title {
+            font-weight: bold;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #a29bfe, #ff6b6b);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowText 3s ease-in-out infinite;
+            letter-spacing: 0.5px;
+        }
+        @keyframes rainbowText {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .contact-tip-box .contact-tip-text {
+            color: #aaa;
+            font-size: 0.88em;
+            line-height: 1.6;
+        }
+        .contact-tip-box .contact-tip-text a {
+            color: #feca57;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-tip-box .contact-tip-text a:hover { text-decoration: underline; }
+
+        /* ====== 优化3: 返回顶部按钮 ====== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.4em;
+            box-shadow: 0 4px 15px rgba(102,126,234,0.5);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(102,126,234,0.7);
+        }
+        /* 箭头闪烁动画 */
+        @keyframes blink {
+            0%,100% { opacity:1; transform:translateY(0); }
+            50% { opacity:0.4; transform:translateY(4px); }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 限时优惠倒计时 -->
+    <div class="top-banner">
+                <div class="countdown-row">
+            <span>⏰ 限时优惠倒计时：</span>
+        <div class="countdown-timer" >
+            <span class="seg" id="cdHour">00</span>
+            <span class="sep">:</span>
+            <span class="seg" id="cdMin">00</span>
+            <span class="sep">:</span>
+            <span class="seg" id="cdSec">00</span>
+        </div>
+                    <span>后恢复原价 ¥100</span>
+        </div>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="返回顶部">⇧</button>
+    
+        
+
+    
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">加载中...</div>
+    </div>
+    
+    <canvas id="particles"></canvas>
+    
+    <div class="cta-banner">
+        <div class="highlight">🔥 BLEACH Brave Souls 全角色4K高清图鉴</div>
+        <div class="cta-tagline">✅ 1000+ 角色高清原图 · 约6G · 永久更新</div>
+        <div class="cta-price-row">
+            <span class="cta-original">原价 ¥100</span>
+            <span class="cta-price">¥20</span>
+            <button onclick="showPurchase()" class="cta-buy-btn">🛒 立即抢购</button>
+        </div>
+        <div class="cta-urgency">⚡ 已售999+份 · 仅剩100个优惠名额</div>
+    </div>
+    
+    <div class="container">
+        <div class="hero">
+            <h1>BLEACH Brave Souls · 角色盛宴</h1>
+            <div class="subtitle">1000+ 角色预览 · 4K原图购买后即可获取</div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="num">1000+</div>
+                    <div class="label">角色数量</div>
+                </div>
+                <div class="stat">
+                    <div class="num">960x540</div>
+                    <div class="label">预览分辨率</div>
+                </div>
+                <div class="stat">
+                    <div class="num">211</div>
+                    <div class="label">1-4星角色</div>
+                </div>
+                <div class="stat">
+                    <div class="num">803</div>
+                    <div class="label">5星角色</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-category="1-4star" onclick="switchCategory('1-4star')">
+                <span>1-4星人物<span class="count">211张</span></span>
+            </div>
+            <div class="tab" data-category="5star" onclick="switchCategory('5star')">
+                <span>5星人物<span class="count">803张</span></span>
+            </div>
+            <div class="tab" onclick="openPreview4K()" style="background:linear-gradient(135deg,#1a0a2e,#0d2d3d);border-color:rgba(78,140,255,0.4);cursor:pointer;">
+                <span>🔍 4K试看<span class="count">10+张</span></span>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="search-box">
+                <input type="number" id="searchInput" placeholder="输入编号" min="1">
+                <button onclick="searchImage()">跳转</button>
+            </div>
+            <div class="page-info" id="pageInfo">
+                第 <span id="currentPage">1</span> / <span id="totalPages">11</span> 页  共 <span id="totalCount">211</span> 张
+            </div>
+        </div>
+        
+        <div class="gallery" id="gallery"></div>
+        
+        <div class="pagination" id="pagination"></div>
+        
+        <div class="footer">
+            BLEACH Brave Souls全角色图鉴  |  预览版
+        </div>
+    </div>
+    
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-topbar">
+                <span>🔥 想要这张图的4K高清版本？</span>
+                <button onclick="showPurchase()" style="margin-left:15px;padding:6px 18px;background:linear-gradient(135deg,#ff6b6b,#feca57);border:none;border-radius:15px;color:#000;font-weight:bold;cursor:pointer;font-size:0.9em;">立即获取全套（¥20）</button>
+            </div>
+            <button class="modal-close" onclick="closeModal()">x</button>
+            <button class="modal-nav modal-prev" onclick="prevImage()">&#9664;</button>
+            <img id="modalImage" src="" alt="">
+            <button class="modal-nav modal-next" onclick="nextImage()">&#9654;</button>
+            <div class="modal-info">
+                <span class="char-num" id="modalNum">#1</span>
+                <span class="char-label" id="modalLabel">1-4星人物</span>
+                <span class="char-star" id="modalStar">1-4★</span>
+            </div>
+
+        </div>
+    </div>
+    
+    <script>
+    (function() {
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+        
+        for (let i = 0; i < 60; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 1.5 + 0.5,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3,
+                alpha: Math.random() * 0.5 + 0.1
+            });
+        }
+        
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(102, 126, 234, ' + p.alpha + ')';
+                ctx.fill();
+                
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+            });
+            
+            particles.forEach((a, i) => {
+                particles.slice(i + 1).forEach(b => {
+                    const d = Math.hypot(a.x - b.x, a.y - b.y);
+                    if (d < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.strokeStyle = 'rgba(102, 126, 234, ' + (0.08 * (1 - d / 120)) + ')';
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                });
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+    })();
+    
+    const ITEMS_PER_PAGE = 20;
+    const categories = {
+        '1-4star': { count: 211, path: 'thumbnails/1-4star', label: '1-4星人物', star: '1-4★' },
+        '5star':   { count: 803, path: 'thumbnails/5star',   label: '5星人物',   star: '5★' }
+    };
+    
+    let currentCategory = '1-4star';
+    let currentPage = 1;
+    let currentImageIndex = 0;
+    
+    function init() {
+        renderGallery();
+        renderPagination();
+        setTimeout(() => {
+            document.getElementById('loadingOverlay').classList.add('hidden');
+        }, 600);
+    }
+    
+    function switchCategory(category) {
+        currentCategory = category;
+        currentPage = 1;
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.category === category);
+        });
+        renderGallery();
+        renderPagination();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    function renderGallery() {
+        const gallery = document.getElementById('gallery');
+        const cat = categories[currentCategory];
+        const start = (currentPage - 1) * ITEMS_PER_PAGE + 1;
+        const end = Math.min(start + ITEMS_PER_PAGE - 1, cat.count);
+        
+        gallery.innerHTML = '';
+        
+        for (let i = start; i <= end; i++) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.index = i;
+            card.onclick = () => openModal(i);
+            card.innerHTML = '<img src="' + cat.path + '/' + i + '.jpg" alt="角色' + i + '" loading="lazy" onerror="this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23111%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23444%22 font-size=%2212%22>加载失败</text></svg>">' + '<div class="star-badge">' + cat.star + '</div>' + '<div class="card-zoom">+</div>' + '<div class="card-info"><div class="card-num">No.' + i + '</div></div>';
+            gallery.appendChild(card);
+        }
+        
+        document.getElementById('currentPage').textContent = currentPage;
+        document.getElementById('totalCount').textContent = cat.count;
+    }
+    
+    function renderPagination() {
+        const pagination = document.getElementById('pagination');
+        const cat = categories[currentCategory];
+        const totalPages = Math.ceil(cat.count / ITEMS_PER_PAGE);
+        document.getElementById('totalPages').textContent = totalPages;
+        
+        let html = '<button onclick="goToPage(' + (currentPage - 1) + ')" ' + (currentPage === 1 ? 'disabled' : '') + '>上一页</button>';
+        html += '<div class="page-numbers">';
+        
+        const maxVisible = 7;
+        let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+        let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+        if (endPage - startPage < maxVisible - 1) startPage = Math.max(1, endPage - maxVisible + 1);
+        
+        if (startPage > 1) {
+            html += '<button class="page-num" onclick="goToPage(1)">1</button>';
+            if (startPage > 2) html += '<button class="page-num" disabled style="opacity:0.3">...</button>';
+        }
+        for (let i = startPage; i <= endPage; i++) {
+            html += '<button class="page-num ' + (i === currentPage ? 'active' : '') + '" onclick="goToPage(' + i + ')">' + i + '</button>';
+        }
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) html += '<button class="page-num" disabled style="opacity:0.3">...</button>';
+            html += '<button class="page-num" onclick="goToPage(' + totalPages + ')">' + totalPages + '</button>';
+        }
+        html += '</div>';
+        html += '<button onclick="goToPage(' + (currentPage + 1) + ')" ' + (currentPage === totalPages ? 'disabled' : '') + '>下一页</button>';
+        
+        pagination.innerHTML = html;
+    }
+    
+    function goToPage(page) {
+        const cat = categories[currentCategory];
+        const totalPages = Math.ceil(cat.count / ITEMS_PER_PAGE);
+        if (page < 1 || page > totalPages) return;
+        currentPage = page;
+        renderGallery();
+        renderPagination();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    function searchImage() {
+        const input = document.getElementById('searchInput');
+        const num = parseInt(input.value);
+        if (isNaN(num) || num < 1) { alert('请输入有效的编号'); return; }
+        const cat = categories[currentCategory];
+        if (num > cat.count) { alert('编号超出范围，当前分类最大编号为 ' + cat.count); return; }
+        const page = Math.ceil(num / ITEMS_PER_PAGE);
+        goToPage(page);
+        setTimeout(() => {
+            const item = document.querySelector('.card[data-index="' + num + '"]');
+            if (item) {
+                item.style.boxShadow = '0 0 0 3px #feca57, 0 0 30px rgba(254,202,87,0.5)';
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => { item.style.boxShadow = ''; }, 2500);
+            }
+        }, 200);
+    }
+    
+    function openModal(index) {
+        currentImageIndex = index;
+        const cat = categories[currentCategory];
+        document.getElementById('modalImage').src = cat.path + '/' + index + '.jpg';
+        document.getElementById('modalNum').textContent = '#' + index;
+        document.getElementById('modalLabel').textContent = cat.label;
+        document.getElementById('modalStar').textContent = cat.star;
+        document.getElementById('modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        document.getElementById('modal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    function prevImage() {
+        if (currentImageIndex > 1) openModal(currentImageIndex - 1);
+    }
+    
+    function nextImage() {
+        const cat = categories[currentCategory];
+        if (currentImageIndex < cat.count) openModal(currentImageIndex + 1);
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (!document.getElementById('modal').classList.contains('active')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+    });
+    
+    document.getElementById('modal').addEventListener('click', (e) => {
+        if (e.target.id === 'modal') closeModal();
+    });
+    
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') searchImage();
+    });
+    
+    /* 购买相关函数 */
+    function showPurchase() {
+        document.getElementById('purchaseModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closePurchase() {
+        document.getElementById('purchaseModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    /* show4KDemo 已移除，由4K试看轮播替代 */
+    
+    function showContact(type) {
+        if (type === 'qq') {
+            alert('📞 客服联系方式\n\n👥 QQ群：576774523\n\n请加入此QQ群，发送付款截图验证后\n即可获取完整版4K原图下载链接！');
+        } else if (type === 'wechat') {
+            alert('📞 客服联系方式\n\n👥 QQ群：576774523\n\n请加入此QQ群，发送付款截图验证后\n即可获取完整版4K原图下载链接！');
+        }
+    }
+    
+    function confirmPurchase() {
+        // 显示"正在验证"提示
+        var btn = document.getElementById('payConfirmBtn');
+        if (!btn) { alert('错误：找不到按钮'); return; }
+        btn.disabled = true;
+        btn.textContent = '⏳ 正在验证支付结果...';
+        btn.style.background = 'linear-gradient(135deg,#666,#888)';
+        
+        setTimeout(function() {
+            // 显示成功弹窗（网盘链接+提取码由客服私信提供，不在此处展示）
+            document.getElementById('successModal').style.display = 'flex';
+            
+            // 恢复按钮状态
+            btn.disabled = false;
+            btn.textContent = '📞 我已完成支付，联系客服获取提取码';
+            btn.style.background = 'linear-gradient(135deg,#667eea,#764ba2)';
+        }, 2000);
+    }
+    
+    /* ====== 4K试看轮播 ====== */
+    const preview4KImages = {
+        '14': [
+            'images/4k_preview_14_1.png',
+            'images/4k_preview_14_17.png',
+            'images/4k_preview_14_33.png',
+            'images/4k_preview_14_49.png',
+            'images/4k_preview_14_64.png'
+        ],
+        '5star': [
+            'images/4k_preview_5star_1.png',
+            'images/4k_preview_5star_5.png',
+            'images/4k_preview_5star_9.png',
+            'images/4k_preview_5star_13.png',
+            'images/4k_preview_5star_17.png'
+        ]
+    };
+    let preview4kCat = '14';
+    let preview4kIdx = 0;
+
+    function openPreview4K() {
+        document.getElementById('preview4kModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+        preview4kIdx = 0;
+        renderPreview4K();
+    }
+
+    function closePreview4K() {
+        document.getElementById('preview4kModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function switchPreview4KTab(cat) {
+        preview4kCat = cat;
+        preview4kIdx = 0;
+        document.querySelectorAll('.preview4k-tab').forEach(function(t) {
+            t.classList.toggle('active', t.dataset.cat === cat);
+        });
+        renderPreview4K();
+    }
+
+    function renderPreview4K() {
+        var imgs = preview4KImages[preview4kCat];
+        var track = document.getElementById('preview4kTrack');
+        var dots = document.getElementById('preview4kDots');
+        var counter = document.getElementById('preview4kCounter');
+        track.innerHTML = '';
+        imgs.forEach(function(src) {
+            var slide = document.createElement('div');
+            slide.className = 'preview4k-slide';
+            slide.innerHTML = '<img src="' + src + '" alt="4K试看" loading="lazy">';
+            track.appendChild(slide);
+        });
+        dots.innerHTML = '';
+        imgs.forEach(function(_, i) {
+            var dot = document.createElement('button');
+            dot.className = 'preview4k-dot' + (i === 0 ? ' active' : '');
+            dot.onclick = (function(idx) { return function() { goPreview4K(idx); }; })(i);
+            dots.appendChild(dot);
+        });
+        updatePreview4K();
+    }
+
+    function updatePreview4K() {
+        var imgs = preview4KImages[preview4kCat];
+        var track = document.getElementById('preview4kTrack');
+        track.style.transform = 'translateX(-' + (preview4kIdx * 100) + '%)';
+        var dots = document.querySelectorAll('.preview4k-dot');
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === preview4kIdx); });
+        document.getElementById('preview4kCounter').textContent = (preview4kIdx + 1) + ' / ' + imgs.length;
+    }
+
+    function prevPreview4K() {
+        var imgs = preview4KImages[preview4kCat];
+        preview4kIdx = (preview4kIdx - 1 + imgs.length) % imgs.length;
+        updatePreview4K();
+    }
+
+    function nextPreview4K() {
+        var imgs = preview4KImages[preview4kCat];
+        preview4kIdx = (preview4kIdx + 1) % imgs.length;
+        updatePreview4K();
+    }
+
+    function goPreview4K(idx) {
+        preview4kIdx = idx;
+        updatePreview4K();
+    }
+
+    // 键盘支持
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('preview4kModal').classList.contains('active')) return;
+        if (e.key === 'ArrowLeft') prevPreview4K();
+        else if (e.key === 'ArrowRight') nextPreview4K();
+        else if (e.key === 'Escape') closePreview4K();
+    });
+
+    init();
+    
+    /* ====== 优化1: 限时倒计时 ====== */
+    (function(){
+        // 设置倒计时：24小时后结束（可修改）
+        var endTime = Date.now() + 24 * 60 * 60 * 1000;
+        function update() {
+            var diff = endTime - Date.now();
+            if (diff <= 0) {
+                var el = document.getElementById('countdownBanner'); if(el) el.style.display = 'none';
+                return;
+            }
+            var h = Math.floor(diff / 3600000);
+            var m = Math.floor((diff % 3600000) / 60000);
+            var s = Math.floor((diff % 60000) / 1000);
+            document.getElementById('cdHour').textContent = String(h).padStart(2,'0');
+            document.getElementById('cdMin').textContent = String(m).padStart(2,'0');
+            document.getElementById('cdSec').textContent = String(s).padStart(2,'0');
+            requestAnimationFrame(update);
+        }
+        update();
+    })();
+    
+    /* ====== 优化3: 返回顶部按钮 ====== */
+    (function(){
+        var btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            btn.classList.toggle('visible', window.scrollY > 500);
+        });
+    })();
+    
+    /* ====== 优化2: 4K试看触摸滑动支持 ====== */
+    (function(){
+        var carousel = document.querySelector('.preview4k-carousel');
+        if (!carousel) return;
+        var startX = 0;
+        var isTouch = false;
+        carousel.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            isTouch = true;
+        }, { passive: true });
+        carousel.addEventListener('touchend', function(e) {
+            if (!isTouch) return;
+            var dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 50) {
+                if (dx > 0) prevPreview4K();
+                else nextPreview4K();
+            }
+            isTouch = false;
+        }, { passive: true });
+    })();
+    </script>
+    
+    <!-- 购买弹窗 -->
+    <div class="modal" id="purchaseModal">
+        <div class="modal-content" style="max-width:600px;padding:30px;max-height:90vh;overflow-y:auto;">
+            <button class="modal-close" onclick="closePurchase()">x</button>
+            <h2 style="color:#fff;text-align:center;margin-bottom:20px;font-size:1.5em;">🛒 获取完整版4K原图</h2>
+            
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:15px;padding:20px;margin-bottom:25px;">
+                <h3 style="color:#feca57;margin-bottom:10px;">📦 产品内容</h3>
+                <ul style="color:#ddd;line-height:1.8;list-style:none;padding:0;">
+                    <li>✅ 1000+角色高清原图</li>
+                    <li>✅ 包含1-4星+ 5星</li>
+                    <li>✅ 分辨率：3840x2160 (4K)</li>
+                    <li>✅ 文件大小：约6G</li>
+                    <li>✅ 永久更新，新角色持续添加</li>
+                </ul>
+            </div>
+            
+            <div style="background:linear-gradient(135deg,rgba(255,107,107,0.1),rgba(254,202,87,0.1));border:2px solid #feca57;border-radius:15px;padding:20px;margin-bottom:25px;text-align:center;">
+                <div style="font-size:1.1em;color:#aaa;text-decoration:line-through;opacity:0.7;margin-bottom:5px;">原价：¥100</div>
+                <div style="font-size:2.5em;font-weight:bold;color:#feca57;">🔥 限时特惠：¥20</div>
+                <div style="color:#ff6b6b;margin-top:8px;font-size:1em;font-weight:bold;">💰 省了¥80！仅限前100名</div>
+            </div>
+            
+            <!-- ⭐ 核心按钮：放在二维码上方，一眼可见 -->
+            <button onclick="confirmPurchase()" id="payConfirmBtn" style="width:100%;padding:18px;font-size:1.3em;background:linear-gradient(135deg,#667eea,#764ba2);border:none;border-radius:25px;color:#fff;font-weight:bold;cursor:pointer;box-shadow:0 4px 20px rgba(102,126,234,0.6);margin-bottom:20px;animation:pulse 2s infinite;">📞 我已完成支付，联系客服获取提取码</button>
+            
+            <div class="payment-section">
+                <h3>💳 扫码支付 ¥20</h3>
+                <div class="scan-tip">⬆️ 付款完成后，点击下方紫色按钮联系客服 ⬆️</div>
+                <div class="qr-row">
+                    <div class="qr-box alipay">
+                        <div class="qr-label">💙 支付宝</div>
+                        <div class="qr-amount">¥ 20.00</div>
+                        <div class="qr-img-wrap">
+                            <img src="images/alipay.jpg" alt="支付宝收款码" style="width:160px;height:160px;display:block;">
+                        </div>
+                        <div class="qr-hint">长按或扫一扫支付</div>
+                    </div>
+                    <div class="qr-box wechat">
+                        <div class="qr-label">💚 微信支付</div>
+                        <div class="qr-amount">¥ 20.00</div>
+                        <div class="qr-img-wrap">
+                            <img src="images/wechat_pay.png" alt="微信收款码" style="width:160px;height:160px;display:block;">
+                        </div>
+                        <div class="qr-hint">长按或扫一扫支付</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-tip-box">
+                <div class="contact-tip-title">💬 付款后怎么联系客服？</div>
+                <div style="text-align:center;margin-bottom:6px;">
+                    <span style="display:inline-block;animation:blink 1.2s ease-in-out infinite;font-size:1.3em;">👇</span>
+                    <span style="display:inline-block;animation:blink 1.2s ease-in-out 0.2s infinite;font-size:1.1em;margin-left:4px;">👇</span>
+                </div>
+
+                <div class="contact-tip-text">
+                    支付成功后，点击上方 <a href="javascript:void(0)" onclick="document.getElementById('payConfirmBtn').scrollIntoView({behavior:'smooth'});">紫色按钮</a> 
+                    或 联系QQ群 <a href="javascript:void(0)" onclick="copyText('576774523');">576774523</a> / 
+                    B站 <a href="https://space.bilibili.com/25200561" target="_blank">主页私信</a><br>
+                    发送<strong>付款截图</strong>，客服将在5分钟内回复！
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4K试看弹窗 -->
+    <div class="modal" id="preview4kModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePreview4K()">x</button>
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:14px 18px;margin-bottom:15px;text-align:center;">
+                <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:16px 20px;color:#ccc;font-size:1em;line-height:1.9;">
+                    ⚠️ <strong style="color:#feca57;">特别声明</strong><br>
+                    本图鉴基于《BLEACH Brave Souls》游戏原生立绘整理。由于游戏本身的人物立绘属于低清级别原始素材，我并未过度依赖AI超分修复，即便采用NVIDIA 4K超分技术，也坚持以保留原有细节为优先。若您追求专业级商业4K画质，受游戏底层限制，客观上确实无法达到那般清晰度，特此知悉。<span style="background:linear-gradient(90deg,#ff6b6b,#feca57,#ff9f43,#48dbfb,#a29bfe,#ff6b6b);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rainbowText 2.5s ease-in-out infinite;font-weight:bold;">若您对此已有预期却仍有意寻衅，烦请绕行，恕不奉陪。</span>
+                </div>
+            </div>
+
+            <div style="background:linear-gradient(135deg,rgba(78,140,255,0.08),rgba(162,89,255,0.08));border:1px solid rgba(78,140,255,0.25);border-radius:10px;padding:10px 16px;margin-bottom:14px;text-align:center;">
+                <span style="color:#7eb8ff;font-size:0.9em;">💡 <strong>提示：</strong>将鼠标悬停在下方图片上，<strong>右键选择"在新标签页中打开图片"</strong>，即可查看4K高清原图。</span>
+            </div>
+            
+            <div class="preview4k-tabs">
+                <div class="preview4k-tab active" data-cat="14" onclick="switchPreview4KTab('14')">1-4星人物 (5张)</div>
+                <div class="preview4k-tab" data-cat="5star" onclick="switchPreview4KTab('5star')">5星人物 (5张)</div>
+            </div>
+            
+            <div class="preview4k-carousel">
+                <button class="preview4k-arrow preview4k-prev" onclick="prevPreview4K()">&#9664;</button>
+                <div class="preview4k-track" id="preview4kTrack"></div>
+                <button class="preview4k-arrow preview4k-next" onclick="nextPreview4K()">&#9654;</button>
+            </div>
+            
+            <div class="preview4k-dots" id="preview4kDots"></div>
+            <div class="preview4k-counter" id="preview4kCounter">1 / 5</div>
+            
+            <div class="preview4k-footer">
+                <button onclick="closePreview4K();showPurchase()" style="padding:13px 45px;font-size:1.1em;background:#1a1a2e;border:none;border-radius:25px;color:#fff;font-weight:bold;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.4);">🛒 立即获取全套（¥20）</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ✅ 购买成功弹窗（可点击链接） -->
+    <div class="modal" id="successModal">
+        <div class="modal-content" style="max-width:500px;padding:30px;text-align:center;">
+            <h2 style="color:#07c160;font-size:1.8em;margin-bottom:15px;">🎉 验证成功！</h2>
+            <p style="color:#fff;font-size:1.1em;margin-bottom:25px;">感谢您的购买！</p>
+            
+            <div style="background:rgba(255,255,255,0.05);border-radius:15px;padding:25px;margin-bottom:25px;text-align:left;">
+                <h3 style="color:#feca57;margin-bottom:15px;">📦 百度网盘下载</h3>
+                <p style="color:#aaa;font-size:1em;line-height:1.8;">付款核实后，客服将提供：<br/>🔗 <strong>百度网盘链接 + 提取码</strong></p>
+            </div>
+            
+            <div style="background:rgba(255,255,255,0.05);border-radius:15px;padding:25px;margin-bottom:25px;text-align:left;">
+                <h3 style="color:#ff6b6b;margin-bottom:15px;">📞 联系客服获取提取码</h3>
+                <p style="color:#feca57;margin-bottom:20px;font-size:1.05em;font-weight:bold;">⚠️ 请发送【付款截图】给客服核实后，即可获取提取码（以下三种联系方式任选其一）</p>
+                <div style="color:#ddd;line-height:2;">
+                    <p style="margin-bottom:10px;">💬 <strong>QQ：</strong><a href="javascript:void(0);" onclick="copyText('1447218548')" style="color:#9bafff;text-decoration:none;">1447218548</a> <span style="color:#888;font-size:0.85em;">(点击复制)</span></p>
+                    <p style="margin-bottom:10px;">👥 <strong>QQ群：</strong><a href="javascript:void(0);" onclick="copyText('576774523')" style="color:#9bafff;text-decoration:none;">576774523</a> <span style="color:#888;font-size:0.85em;">(点击复制)</span></p>
+                    <p>📺 <strong>B站：</strong><a href="https://space.bilibili.com/25200561" target="_blank" style="color:#ff9ed8;text-decoration:none;">点击进入B站主页</a></p>
+                </div>
+            </div>
+            
+            <p style="color:#888;font-size:0.9em;margin-bottom:20px;">⏰ 客服在线时间：9:00-24:00 | 通常5分钟内回复</p>
+            <p style="color:#ff9ed8;font-size:0.95em;margin-bottom:20px;">💡 <strong>推荐使用B站私信联系，回复最快！</strong></p>
+            
+            <button onclick="closeSuccessModal()" style="padding:12px 40px;font-size:1em;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:25px;color:#fff;cursor:pointer;">知道了</button>
+        </div>
+    </div>
+    
+    <script>
+    // 复制文本到剪贴板
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('✅ 已复制：' + text + '\n\n请粘贴给客服！');
+        }, function() {
+            // 降级方案：创建输入框
+            var input = document.createElement('input');
+            input.value = text;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            alert('✅ 已复制：' + text + '\n\n请粘贴给客服！');
+        });
+    }
+    
+    // 关闭成功弹窗
+    function closeSuccessModal() {
+        document.getElementById('successModal').style.display = 'none';
+    }
+    </script>
+</body>
+</html>
+
+
+
