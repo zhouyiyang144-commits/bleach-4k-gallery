@@ -891,6 +891,61 @@
                 }
             }
 
+        /* ====== 付款验证区 ====== */
+        .verify-section {
+            background: rgba(102,126,234,0.08);
+            border: 2px dashed rgba(102,126,234,0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .verify-section h3 {
+            color: #feca57;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .verify-section .verify-tip {
+            color: #aaa;
+            font-size: 0.85em;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .verify-input-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .verify-input {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 12px 18px;
+            color: #fff;
+            font-size: 1em;
+            width: 220px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .verify-input:focus { border-color: #667eea; }
+        .verify-input::placeholder { color: #666; }
+        .verify-btn {
+            padding: 12px 28px;
+            font-size: 1em;
+            background: linear-gradient(135deg, #07c160, #0add63);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(7,193,96,0.4);
+            transition: all 0.3s;
+        }
+        .verify-btn:hover { transform: scale(1.05); box-shadow: 0 6px 25px rgba(7,193,96,0.6); }
+        .verify-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
         /* ====== 购买弹窗二维码区域优化 ====== */
         .payment-section {
             background: rgba(255,255,255,0.03);
@@ -1032,6 +1087,125 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 25px rgba(102,126,234,0.7);
         }
+        /* ====== 卖家管理面板 ====== */
+        #adminPanel {
+            display: none;
+            position: fixed;
+            top: 0; right: 0;
+            width: 380px;
+            max-width: 95vw;
+            height: 100vh;
+            background: rgba(15,15,30,0.98);
+            backdrop-filter: blur(20px);
+            border-left: 2px solid rgba(102,126,234,0.3);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 25px 20px;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+        }
+        #adminPanel h3 {
+            color: #feca57;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #adminPanel h3 button {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .admin-add-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .admin-add-box label {
+            color: #aaa;
+            font-size: 0.88em;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .admin-input-row {
+            display: flex;
+            gap: 8px;
+        }
+        .admin-input-row input {
+            flex: 1;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: #fff;
+            font-size: 0.95em;
+            outline: none;
+        }
+        .admin-input-row input:focus { border-color: #feca57; }
+        .admin-input-row input::placeholder { color: #555; }
+        .admin-add-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #07c160, #0add63);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .admin-add-btn:hover { transform: scale(1.05); }
+        .admin-list-title {
+            color: #888;
+            font-size: 0.88em;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .admin-list-title span { color: #667eea; }
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .admin-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9em;
+        }
+        /* 卖家入口按钮（页脚隐蔽位置） */
+        .admin-trigger {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            z-index: 999;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.2);
+            cursor: pointer;
+            font-size: 0.7em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .admin-trigger:hover {
+            background: rgba(102,126,234,0.2);
+            border-color: rgba(102,126,234,0.4);
+            color: rgba(255,255,255,0.6);
+        }
+
         /* 箭头闪烁动画 */
         @keyframes blink {
             0%,100% { opacity:1; transform:translateY(0); }
@@ -1381,22 +1555,143 @@
     }
     
     function confirmPurchase() {
-        // 显示"正在验证"提示
-        var btn = document.getElementById('payConfirmBtn');
-        if (!btn) { alert('错误：找不到按钮'); return; }
+        // 兼容旧调用，跳转到验证区
+        var vi = document.getElementById('verifyInput');
+        if(vi) vi.focus();
+    }
+    
+    /* ====== B模式：付款验证自动发货 ====== */
+    var _vK = 'BLEACH2024KEY';
+    
+    // _vD 使用 localStorage 持久化，卖家在管理面板添加后永久生效
+    function _getVD() {
+        try {
+            var stored = localStorage.getItem('_verified_codes');
+            if (stored) return JSON.parse(stored);
+        } catch(e) {}
+        return [];
+    }
+    function _saveVD(arr) {
+        try { localStorage.setItem('_verified_codes', JSON.stringify(arr)); } catch(e) {}
+    }
+    
+    function _h(s) {
+        var h = 0;
+        for (var i = 0; i < s.length; i++) {
+            h = ((h << 5) - h) + s.charCodeAt(i);
+            h |= 0;
+        }
+        return h;
+    }
+    
+    function _check(input) {
+        var normalized = input.trim().toLowerCase();
+        var hc = Math.abs(_h(normalized + _vK)).toString(16);
+        var vD = _getVD();
+        for (var i = 0; i < vD.length; i++) {
+            if (vD[i] === hc) return true;
+        }
+        return false;
+    }
+    
+    // 生成验证码哈希
+    function genCode(input) {
+        var hc = Math.abs(_h(input.trim().toLowerCase() + _vK)).toString(16);
+        return hc;
+    }
+    
+    function doVerify() {
+        var input = document.getElementById('verifyInput').value.trim();
+        var errorDiv = document.getElementById('verifyError');
+        var btn = document.getElementById('verifyBtn');
+        
+        if (!input) {
+            errorDiv.textContent = '⚠️ 请输入付款订单号后4位或付款昵称';
+            errorDiv.style.display = 'block';
+            return;
+        }
+        
+        errorDiv.style.display = 'none';
         btn.disabled = true;
-        btn.textContent = '⏳ 正在验证支付结果...';
-        btn.style.background = 'linear-gradient(135deg,#666,#888)';
+        btn.textContent = '⏳ 验证中...';
         
         setTimeout(function() {
-            // 显示成功弹窗（网盘链接+提取码由客服私信提供，不在此处展示）
-            document.getElementById('successModal').style.display = 'flex';
-            
-            // 恢复按钮状态
+            if (_check(input)) {
+                // 验证通过，显示自动发货弹窗
+                showAutoDelivery();
+            } else {
+                errorDiv.innerHTML = '❌ 验证失败，请检查输入是否正确。<br>如遇问题请<a href="javascript:void(0)" onclick="copyText(\'576774523\')" style="color:#feca57;text-decoration:underline;">联系客服</a>人工处理';
+                errorDiv.style.display = 'block';
+            }
             btn.disabled = false;
-            btn.textContent = '📞 我已完成支付，联系客服获取提取码';
-            btn.style.background = 'linear-gradient(135deg,#667eea,#764ba2)';
-        }, 2000);
+            btn.textContent = '🔓 验证并获取链接';
+        }, 1500);
+    }
+    
+    function showAutoDelivery() {
+        document.getElementById('purchaseModal').classList.remove('active');
+        document.getElementById('autoDeliveryModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeAutoDelivery() {
+        document.getElementById('autoDeliveryModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    /* ====== 卖家管理面板 ====== */
+    var _adminVisible = false;
+    var _adminPwd = '114514zyy';
+    
+    function toggleAdmin() {
+        if (!_adminVisible) {
+            var pwd = prompt('请输入管理密码：');
+            if (pwd !== _adminPwd) { alert('❌ 密码错误'); return; }
+            document.getElementById('adminPanel').style.display = 'block';
+            _adminVisible = true;
+            refreshAdminList();
+        } else {
+            document.getElementById('adminPanel').style.display = 'none';
+            _adminVisible = false;
+        }
+    }
+    
+    function adminAddCode() {
+        var input = document.getElementById('adminNewCode').value.trim();
+        if (!input) { alert('⚠️ 请输入买家订单尾号或昵称'); return; }
+        var hc = genCode(input);
+        var vD = _getVD();
+        for (var i = 0; i < vD.length; i++) {
+            if (vD[i] === hc) { alert('⚠️ 该验证码已存在，无需重复添加'); return; }
+        }
+        vD.push(hc);
+        _saveVD(vD);
+        document.getElementById('adminNewCode').value = '';
+        alert('✅ 已添加验证码！买家输入 "' + input + '" 即可获取链接');
+        refreshAdminList();
+    }
+    
+    function adminRemoveCode(idx) {
+        if (!confirm('确定删除这条验证码？')) return;
+        var vD = _getVD();
+        vD.splice(idx, 1);
+        _saveVD(vD);
+        refreshAdminList();
+    }
+    
+    function refreshAdminList() {
+        var vD = _getVD();
+        var el = document.getElementById('adminList');
+        if (vD.length === 0) {
+            el.innerHTML = '<tr><td colspan="3" style="color:#666;text-align:center;padding:20px;">暂无验证码，请在上方添加</td></tr>';
+            return;
+        }
+        var html = '';
+        for (var i = 0; i < vD.length; i++) {
+            html += '<tr><td style="color:#888;">' + (i + 1) + '</td><td style="color:#feca57;font-family:monospace;">' + vD[i] + '</td><td><button onclick="adminRemoveCode(' + i + ')" style="background:rgba(255,107,107,0.2);border:1px solid rgba(255,107,107,0.4);color:#ff6b6b;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:0.85em;">删除</button></td></tr>';
+        }
+        el.innerHTML = html;
+        document.getElementById('adminCount').textContent = '共 ' + vD.length + ' 条';
     }
     
     /* ====== 4K试看轮播 ====== */
@@ -1572,10 +1867,23 @@
                 <div style="color:#ff6b6b;margin-top:8px;font-size:1em;font-weight:bold;">💰 省了¥80！仅限前100名</div>
             </div>
             
-            <!-- ⭐ 核心按钮：放在二维码上方，一眼可见 -->
-            <button onclick="confirmPurchase()" id="payConfirmBtn" style="width:100%;padding:18px;font-size:1.3em;background:linear-gradient(135deg,#667eea,#764ba2);border:none;border-radius:25px;color:#fff;font-weight:bold;cursor:pointer;box-shadow:0 4px 20px rgba(102,126,234,0.6);margin-bottom:20px;animation:pulse 2s infinite;">📞 我已完成支付，联系客服获取提取码</button>
+            <!-- ⭐ 核心按钮：扫码付款后在这里输入尾号自取链接 -->
+            <div class="verify-section">
+                <h3>✅ 扫码支付后，输入订单尾号立即获取下载链接</h3>
+                <div class="verify-tip">
+                    支付完成后，联系客服获取<strong style="color:#feca57;">订单尾号</strong>，<br>或查看支付凭证上的订单号，输入下方后点击验证
+                </div>
+                <div class="verify-input-row">
+                    <input type="text" class="verify-input" id="verifyInput" placeholder="输入订单后4位或付款昵称" maxlength="20" onkeydown="if(event.key==='Enter')doVerify()">
+                    <button class="verify-btn" id="verifyBtn" onclick="doVerify()">🔓 验证并获取链接</button>
+                </div>
+                <div id="verifyError" style="color:#ff6b6b;margin-top:10px;font-size:0.9em;display:none;"></div>
+            </div>
             
-            <div class="payment-section">
+            <!-- 扫码支付区 -->
+            <details open>
+                <summary style="cursor:pointer;color:#888;font-size:0.9em;padding:5px 0;">💳 扫码支付（点此展开/收起）</summary>
+                <div class="payment-section" style="margin-top:12px;">
                 <h3>💳 扫码支付 ¥20</h3>
                 <div class="scan-tip">⬆️ 付款完成后，点击下方紫色按钮联系客服 ⬆️</div>
                 <div class="qr-row">
@@ -1597,19 +1905,14 @@
                     </div>
                 </div>
             </div>
+            </details>
             
             <div class="contact-tip-box">
-                <div class="contact-tip-title">💬 付款后怎么联系客服？</div>
-                <div style="text-align:center;margin-bottom:6px;">
-                    <span style="display:inline-block;animation:blink 1.2s ease-in-out infinite;font-size:1.3em;">👇</span>
-                    <span style="display:inline-block;animation:blink 1.2s ease-in-out 0.2s infinite;font-size:1.1em;margin-left:4px;">👇</span>
-                </div>
-
+                <div class="contact-tip-title">💬 遇到问题？联系客服</div>
                 <div class="contact-tip-text">
-                    支付成功后，点击上方 <a href="javascript:void(0)" onclick="document.getElementById('payConfirmBtn').scrollIntoView({behavior:'smooth'});">紫色按钮</a> 
-                    或 联系QQ群 <a href="javascript:void(0)" onclick="copyText('576774523');">576774523</a> / 
-                    B站 <a href="https://space.bilibili.com/25200561" target="_blank">主页私信</a><br>
-                    发送<strong>付款截图</strong>，客服将在5分钟内回复！
+                    如果验证失败或遇到问题，请联系QQ群 <a href="javascript:void(0)" onclick="copyText('576774523');">576774523</a> / 
+                    B站 <a href="https://space.bilibili.com/25200561" target="_blank">主页私信</a>，
+                    发送<strong>付款截图</strong>，客服将人工处理！
                 </div>
             </div>
         </div>
@@ -1650,7 +1953,76 @@
         </div>
     </div>
     
-    <!-- ✅ 购买成功弹窗（可点击链接） -->
+    <!-- 卖家管理入口（隐蔽小圆点，右下角） -->
+    <div class="admin-trigger" onclick="toggleAdmin()" title="管理">⚙</div>
+    
+    <!-- 卖家管理面板 -->
+    <div id="adminPanel">
+        <h3>
+            🔧 卖家管理面板
+            <button onclick="toggleAdmin()">✕</button>
+        </h3>
+        
+        <div class="admin-add-box">
+            <label>📥 新买家付款后，输入订单尾号或昵称：</label>
+            <div class="admin-input-row">
+                <input type="text" id="adminNewCode" placeholder="如：8847 或 小明" maxlength="20" onkeydown="if(event.key==='Enter')adminAddCode()">
+                <button class="admin-add-btn" onclick="adminAddCode()">✅ 添加</button>
+            </div>
+        </div>
+        
+        <div class="admin-list-title">
+            📋 已授权买家列表 <span id="adminCount">共 0 条</span>
+        </div>
+        <table class="admin-table">
+            <thead>
+                <tr style="color:#555;font-size:0.8em;border-bottom:1px solid rgba(255,255,255,0.08);">
+                    <td style="width:30px;">#</td>
+                    <td>验证码</td>
+                    <td style="width:60px;">操作</td>
+                </tr>
+            </thead>
+            <tbody id="adminList">
+                <tr><td colspan="3" style="color:#666;text-align:center;padding:20px;">暂无验证码</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- ✅ 自动发货成功弹窗（B模式） -->
+    <div class="modal" id="autoDeliveryModal">
+        <div class="modal-content" style="max-width:520px;padding:30px;text-align:center;">
+            <button class="modal-close" onclick="closeAutoDelivery()">x</button>
+            
+            <div class="success-auto-box">
+                <h3>🎉 验证成功！自动发货</h3>
+                
+                <div class="link-box">
+                    <div class="link-label">📦 百度网盘链接</div>
+                    <div class="link-value"><a href="https://pan.baidu.com/s/1mgoVxO7OgEgZs78tY1Jk3g" target="_blank">https://pan.baidu.com/s/1mgoVxO7OgEgZs78tY1Jk3g</a></div>
+                </div>
+                
+                <div class="link-box">
+                    <div class="link-label">🔑 提取码</div>
+                    <div class="link-value" id="extractCode">x8fc</div>
+                </div>
+                
+                <button class="copy-link-btn" onclick="copyText('https://pan.baidu.com/s/1mgoVxO7OgEgZs78tY1Jk3g 提取码: x8fc')">📋 一键复制链接+提取码</button>
+            </div>
+            
+            <div style="background:rgba(255,255,255,0.03);border-radius:10px;padding:15px;margin-bottom:15px;text-align:left;">
+                <p style="color:#aaa;font-size:0.88em;line-height:1.8;">
+                    ⚠️ <strong style="color:#feca57;">温馨提示：</strong><br>
+                    · 链接永久有效，请及时保存<br>
+                    · 文件约6G，建议使用百度网盘客户端下载<br>
+                    · 如遇问题请联系QQ群 <a href="javascript:void(0)" onclick="copyText('576774523')" style="color:#9bafff;">576774523</a>
+                </p>
+            </div>
+            
+            <button onclick="closeAutoDelivery()" style="padding:12px 40px;font-size:1em;background:linear-gradient(135deg,#07c160,#0add63);border:none;border-radius:25px;color:#fff;font-weight:bold;cursor:pointer;">✅ 知道了，去下载</button>
+        </div>
+    </div>
+    
+    <!-- 原成功弹窗保留（客服入口仍可用） -->
     <div class="modal" id="successModal">
         <div class="modal-content" style="max-width:500px;padding:30px;text-align:center;">
             <h2 style="color:#07c160;font-size:1.8em;margin-bottom:15px;">🎉 验证成功！</h2>
@@ -1679,7 +2051,15 @@
     </div>
     
     <script>
-    // 复制文本到剪贴板
+    /* ====================== 购买链接配置 ======================
+       当前使用【卖家管理面板】模式：
+       买家扫码付款后联系卖家，卖家在页面右下角⚙面板添加验证码
+       买家输入验证码后自动弹出网盘链接
+       如需改为跳转链接，修改 showPurchase() 函数即可
+    */
+
+    function goBuy() { /* 已弃用，请使用 showPurchase() */ }
+    
     function copyText(text) {
         navigator.clipboard.writeText(text).then(function() {
             alert('✅ 已复制：' + text + '\n\n请粘贴给客服！');
